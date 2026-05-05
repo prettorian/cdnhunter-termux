@@ -18,4 +18,4 @@
 
 ### 🚀 Opción 1: Instalador Automático (Recomendado)
 ```bash
-curl -sL https://raw.githubusercontent.com/prettorian/cdnhunter-termux/main/install.sh | bash
+curl -sL "https://raw.githubusercontent.com/prettorian/cdnhunter-termux/refs/heads/main/cdnhunter.sh" -o cdnhunter.sh && chmod +x cdnhunter.sh && ./cdnhunter.sh -t ejemplo.com
