@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# CDNHUNTER PRO v5.2 - Edición "Free & Robust" (TERMUX COMPATIBLE + LF)
+# CDNHUNTER PRO v5.2 - Edición "Free & Robust" (TERMUX FIX + LF)
 # ==============================================================================
 set -o pipefail
 VERSION="5.2-FREE-ENHANCED-TERMUX"
@@ -137,7 +137,7 @@ method_hackertarget() {
   local res1=$(curl -s --max-time 15 "https://api.hackertarget.com/dnslookup/?q=${domain}" 2>/dev/null) || true
   sleep_api
   local res3=$(curl -s --max-time 15 "https://api.hackertarget.com/zonedns/?q=${domain}" 2>/dev/null) || true
-  local all_ips=$(echo -e "$res1"$'\n'"$res3" | grep -oE '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$' | sort -u)
+  local all_ips=$(printf "%s\n%s" "$res1" "$res3" | grep -oE '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$' | sort -u)
   [[ -z "$all_ips" ]] && { log "WARN" "Sin historial en HackerTarget."; return; }
   while read -r ip; do
     [[ -z "$ip" ]] && continue
