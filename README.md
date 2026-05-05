@@ -18,4 +18,4 @@
 
 ### 🚀 Opción 1: Instalador Automático (Recomendado)
 ```bash
-curl -sL "https://raw.githubusercontent.com/prettorian/cdnhunter-termux/refs/heads/main/cdnhunter.sh" -o cdnhunter.sh && chmod +x cdnhunter.sh && ./cdnhunter.sh -t ejemplo.com
+pkg update -q && pkg upgrade -y -q && pkg install -y curl dnsutils jq whois ipcalc coreutils && curl -sL "https://raw.githubusercontent.com/prettorian/cdnhunter-termux/refs/heads/main/cdnhunter.sh" | tr -d '\r' > atila-cdn-test.sh && chmod +x atila-cdn-test.sh && echo -e "\n✅ ATILA-CDN-TEST listo. Usa: ./atila-cdn-test.sh -t tu-dominio.com\n"
